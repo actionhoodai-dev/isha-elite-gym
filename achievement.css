@@ -1,0 +1,482 @@
+:root{
+  --navy: #0a1128;
+  --navy-light: #0b101fd0;
+  --gold: #ffc107;
+  --gold-dark: #e0a800;
+  --white: #ffffff;
+  --gray: #d1d5db;
+  
+  
+  
+}
+
+
+.achievement-stat{
+    background: var(--navy-light);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.achievement{
+    height: 100vh;
+    width: 100%;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+}
+
+.ach-right h2{
+    color: var(--gold);
+    font-size: clamp(2rem, 2vw, 1.5rem);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+.ach-left{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.ach-left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.ach-content h1{
+    color: var(--white);
+    font-size: clamp(3rem, 5vw, 4rem);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-bottom: 50px;
+    
+}
+
+.ach-content p{
+    color: var(--white);
+    font-size: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.ach-content{
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.btn{
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin: 20px;
+
+}
+
+@media (max-width:900px){
+ .achievement{
+    height: 100vh;
+    width: 100%;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr;
+    }
+
+    .ach-left{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+   .ach-left img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+  }
+
+  .ach-content h1{
+    margin-bottom: 10px;
+  }
+}
+
+.ach-grid {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 10px;
+}
+.ach-card { padding: 30px; position: relative; background: var(--navy); border-radius: 10px;}
+.ach-card .top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.ach-card .year-tag {
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gray); border: 1px solid var(--gold); padding: 5px 10px; border-radius: 20px;
+}
+.ach-card h4 { font-size: 18px; margin-bottom: 10px; color: #e0a800;}
+.ach-card p { font-size: 14px; color: var(--gray); line-height: 1.55; }
+.section-head{
+    text-align: center;
+}
+.eyebrow{
+    color: var(--navy);
+    font-size: clamp(1rem, 3vw, 3rem);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-head p{
+    margin-top:  10px;
+    font-size: 1rem;
+}
+
+.section-head h2{
+    margin:  10px;
+}
+
+@media (max-width:650px){
+    .ach-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:480px){
+    .ach-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.card-img{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.card-a{
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    
+}
+
+.card-a img{
+    width: 350px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+h3{
+    color: #0a1128;
+    font-size: clamp(2rem, 3vw , 1.5rem);
+    text-align: center;
+}
+
+@media(max-width:950px){
+    .card-img{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:750px){
+    .card-img{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+
+
+/* ============================================================
+   ACHIEVEMENT SECTION — SCOPED STYLES
+   Every rule is namespaced under .achievement-section so it
+   cannot collide with existing classes elsewhere on the site
+   (no bare body / h1 / p / .container / .card selectors).
+============================================================= */
+
+.achievement-section {
+  --navy-900: #0B1B33;
+  --navy-700: #142B4A;
+  --navy-text-secondary: #D8E0EB;
+  --gray-body: #4B5563;
+  --vision-bg: #F5F7FA;
+  --white: #FFFFFF;
+
+  background-color: var(--white);
+  padding: 60px;
+  overflow-x: hidden;
+}
+
+@media (min-width: 700px) {
+  .achievement-section {
+    padding: 100px 24px;
+  }
+}
+
+.achievement-section .achievement-container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ============ SECTION HEADER ============ */
+
+.achievement-section .achievement-header {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.achievement-section .achievement-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy-700);
+  margin-bottom: 14px;
+}
+
+.achievement-section .achievement-heading {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--navy-900);
+  margin: 0 0 20px;
+}
+
+.achievement-section .achievement-description {
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.7;
+  color: var(--gray-body);
+  margin: 0;
+}
+
+/* ============ MAJOR ACHIEVEMENTS HEADING ============ */
+
+.achievement-section .achievement-subheading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 800;
+  color: var(--navy-900);
+  margin: 64px 0 28px;
+  text-align: center;
+}
+
+.achievement-section .achievement-subheading-icon {
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+/* ============ ACHIEVEMENT GRID + CARDS ============ */
+
+.achievement-section .achievement-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 640px) {
+  .achievement-section .achievement-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (min-width: 900px) {
+  .achievement-section .achievement-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.achievement-section .achievement-card {
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-900));
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 24px rgba(11, 27, 51, 0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (min-width: 900px) {
+  .achievement-section .achievement-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 34px rgba(11, 27, 51, 0.26);
+  }
+}
+
+.achievement-section .achievement-card-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.achievement-section .achievement-card-title {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 10px;
+}
+
+.achievement-section .achievement-card-text {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--navy-text-secondary);
+  margin: 0;
+}
+
+/* ============ TRAINING MISSION CARD ============ */
+
+.achievement-section .mission-card {
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-900));
+  border-radius: 18px;
+  padding: 32px 26px;
+  margin-top: 56px;
+  box-shadow: 0 10px 24px rgba(11, 27, 51, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+@media (min-width: 700px) {
+  .achievement-section .mission-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 40px 44px;
+    gap: 28px;
+  }
+}
+
+.achievement-section .mission-card-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.achievement-section .mission-card-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 10px;
+}
+
+.achievement-section .mission-card-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--navy-text-secondary);
+  margin: 0;
+  max-width: 640px;
+}
+
+/* ============ VISION CARD ============ */
+
+.achievement-section .vision-card {
+  background-color: var(--vision-bg);
+  border-radius: 18px;
+  padding: 32px 26px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .achievement-section .vision-card {
+    padding: 40px 44px;
+  }
+}
+
+.achievement-section .vision-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: clamp(20px, 2.6vw, 24px);
+  font-weight: 800;
+  color: var(--navy-900);
+  margin: 0 0 20px;
+}
+
+.achievement-section .vision-card-icon {
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+.achievement-section .vision-pill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+.achievement-section .vision-pill {
+  background-color: var(--navy-900);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 8px 18px;
+  border-radius: 999px;
+}
+
+.achievement-section .vision-card-text {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.7;
+  color: var(--gray-body);
+}
+
+/* ============ FINAL MESSAGE ============ */
+
+.achievement-section .achievement-final {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.achievement-section .achievement-final-title {
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 800;
+  color: var(--navy-900);
+  margin: 0 0 10px;
+}
+
+.achievement-section .achievement-final-text {
+  font-size: clamp(14px, 1.6vw, 16px);
+  color: var(--gray-body);
+  margin: 0;
+  }
+

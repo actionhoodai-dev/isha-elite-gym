@@ -1,0 +1,126 @@
+:root{
+    --navy-deep:   #101626;
+    --navy:        #0c1220;
+    --navy-card:   #121a2c;
+    --navy-line:   #1f2a41;
+    --white:       #f5f6f8;
+    --white-dim:   #a7afc0;
+    --accent:      #e8a13d;   
+    --accent-dim:  #a5762c;
+}
+.inner{
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+.eyebrow{
+  color: var(--white);
+  font-size: clamp(3rem, 4vw, 2rem);
+  text-align: center;
+}
+body{
+  background: var(--navy-card);
+}
+
+.section{
+  margin: 15px;
+  border-radius: 5px;
+}
+.inner h1{
+  color: var(--white);
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+.contact-grid {
+  max-width: 100%;
+  margin: 5px auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 40px;
+  align-items: start;
+  border-radius: 5px;
+  background: var(--white-dim);
+  justify-content: center;
+}
+
+/* ---------- Info cards ---------- */
+.info-list { display: flex; flex-direction: column; gap: 16px; background: var(--navy-card); margin: 15px; border-radius: 5px;}
+.info-card { padding: 26px; display: flex; align-items: flex-start; gap: 18px;  }
+.info-card .icon-box { width: 52px; height: 52px; }
+.info-card .k { font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
+.info-card .v { color: var(--white); font-size: 16px; font-weight: 600; }
+.info-card .v small { display: block; font-weight: 400; color: var(--gray-300); font-size: 13px; margin-top: 4px; }
+
+.hours-card { padding: 26px; }
+.hours-card h4 { font-size: 15px; margin-bottom: 14px; color: var(--accent);}
+.hours-row span{color: var(--white-dim);}
+.hours-row { display: flex; justify-content: space-between; font-size: 13.5px; padding: 8px 0; border-bottom: 1px solid var(--border); color: var(--gray-300); }
+.hours-row:last-child { border-bottom: none; }
+.hours-row span:last-child { color: var(--white); font-weight: 600; }
+
+/* ---------- Form ---------- */
+.form-card { padding: clamp(24px, 3vw, 40px); background: ;}
+.form-card h3 { font-size: clamp(2rem,3vw, 3rem); margin-bottom: 6px; color: var(--navy); }
+.form-card  p { color: var(--gray-300); font-size: 14px; margin-bottom: 26px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-300); margin-bottom: 8px; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--gray-500); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--orange); background: #141419; outline: none; }
+.field textarea { resize: vertical; min-height: 120px; }
+.field.field-error input, .field.field-error select, .field.field-error textarea { border-color: #d94a2b; }
+
+.form-status { min-height: 20px; font-size: 13.5px; margin-bottom: 16px; }
+.form-status.success { color: #6fce8f; }
+.form-status.error { color: #ff8266; }
+
+/* ---------- Map placeholder ---------- */
+
+/* ---------- Final CTA ---------- */
+.contact-final {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-orange);
+  background: linear-gradient(155deg, rgba(255,76,21,0.10), transparent 60%);
+}
+.contact-final h2 { font-size: clamp(26px, 3.4vw, 38px); margin-bottom: 20px; }
+.map-wrap{
+  width: 100%;
+  height: 650px;
+}
+.map-wrap iframe{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-copy{
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 2rem);
+  color: var(--white);
+}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+  .info-card { flex-direction: column; }
+  .map-wrap { height: 260px; }
+}

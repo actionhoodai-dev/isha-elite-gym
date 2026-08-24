@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="gallery.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="main-nav">
+        <div class="brand">
+          <div class="logo-badge">
+            <img src="logo.jpeg" alt="" />
+          </div>
+          <div class="brand-text">
+            <h1>ISHA GYM</h1>
+            <p class="tagline">WEIGHTLIFTING SPORTS ACADEMY</p>
+            <p class="location">SALEM</p>
+          </div>
+        </div>
+
+        <nav class="links" id="navLinks">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT US</a>
+          <a href="achievement.html">ACHIEVEMENTS</a>
+          <a href="gallery.html" class="active">GALLERY</a>
+          <a href="contact.html">CONTACT US</a>
+        </nav>
+
+        <a href="#" class="join-btn">JOIN NOW</a>
+
+        <button
+          class="hamburger"
+          id="hamburgerBtn"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="gallery-section">
+      <div class="gallery-header">
+        <div class="gallery-header__left">
+          <div class="gallery-eyebrow">Our Gallery</div>
+          <h2 class="gallery-title">Strength in <span>Every</span> Moment</h2>
+        </div>
+        <p class="gallery-desc">
+          From dawn training sessions to podium finishes — every frame captures
+          the discipline of our athletes, the intensity of competition, and the
+          milestones earned through relentless work in the gym and on the field.
+        </p>
+      </div>
+
+      <div class="gallery-filters" id="galleryFilters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="gym-training">
+          Gym Training
+        </button>
+
+        <button class="filter-btn" data-filter="competitions">
+          Competitions
+        </button>
+        <button class="filter-btn" data-filter="achievements">
+          Achievements
+        </button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item w2 h2" data-category="gym-training">
+          <img src="g1.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Weightlifting Training</span>
+              <div class="gallery-item-title">training starts at age 13</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="gym-training">
+          <img src="g2.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Weightlifting</span>
+              <div class="gallery-item-title">Barbell Power Clean</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item w2" data-category="sports-academy">
+          <img src="g3.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Asian Championship</span>
+              <div class="gallery-item-title">
+                Championship in weightlifting
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item h2" data-category="competitions">
+          <img src="g4.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Competitions</span>
+              <div class="gallery-item-title">Regional Championship</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="achievements">
+          <img src="g5.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Achievements</span>
+              <div class="gallery-item-title">Podium Finish</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="athletes">
+          <img src="g6.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Athletes</span>
+              <div class="gallery-item-title">Focused &amp; Ready</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="achievements">
+          <img src="g7.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Gold medals </span>
+              <div class="gallery-item-title">weightlifting in state level</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item w2 h2" data-category="achievements">
+          <img src="g8.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Weightlifting</span>
+              <div class="gallery-item-title">Max Effort Session</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="sports-academy">
+          <img src="g9.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">National level tournament</span>
+              <div class="gallery-item-title">asian cup tournament</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="competitions">
+          <img src="g10.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Competitions</span>
+              <div class="gallery-item-title">Finals Night</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item w2" data-category="achievements">
+          <img src="g11.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Achievements</span>
+              <div class="gallery-item-title">National Title Win</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item h2" data-category="athletes">
+          <img src="g12.jpeg" alt="" />
+          <div class="gallery-corner"></div>
+          <div class="gallery-overlay">
+            <div class="gallery-overlay__inner">
+              <span class="gallery-cat">Athletes</span>
+              <div class="gallery-item-title">Built Through Discipline</div>
+            </div>
+          </div>
+        </div>
+
+        
+    </section>
+
+    <section>
+  <div class="gallery-a">
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a13.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a14.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a15.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a16.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a17.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a18.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a19.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a20.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a21.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a22.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a23.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a24.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a25.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a26.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+    <div class="photo-b" data-category="athletes">
+      <img src="a27.jpeg" alt="" />
+      <div class="corner-c"></div>
+    </div>
+
+  </div>
+</section>
+  </body>
+  <script src="script.js"></script>
+</html>
