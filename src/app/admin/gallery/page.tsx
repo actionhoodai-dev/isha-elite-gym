@@ -63,7 +63,10 @@ export default function GalleryManagerPage() {
         setFile(null);
         setPreview(null);
         setTitle('');
-        fetchGallery();
+        if (data.item) {
+          setItems((prev) => [data.item, ...prev.filter((i) => i.id !== data.item.id)]);
+        }
+        setTimeout(() => fetchGallery(), 600);
       } else {
         setMessage({ type: 'error', text: data.error || 'Upload failed. Check Cloudinary credentials.' });
       }

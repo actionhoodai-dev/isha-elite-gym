@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Image as ImageIcon, X } from 'lucide-react';
+import { X, Sparkles } from 'lucide-react';
 
 interface GalleryItem {
   id: string;
@@ -10,6 +10,7 @@ interface GalleryItem {
   title: string;
   catLabel?: string;
   spanClass?: string;
+  isNew?: boolean;
 }
 
 const DEFAULT_ITEMS: GalleryItem[] = [
@@ -31,27 +32,33 @@ export default function GalleryGrid() {
   const [filter, setFilter] = useState('all');
   const [items, setItems] = useState<GalleryItem[]>(DEFAULT_ITEMS);
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadDynamicGallery() {
       try {
-        const res = await fetch('/api/gallery');
+        const res = await fetch('/api/gallery', { cache: 'no-store' });
         if (res.ok) {
           const data = await res.json();
           if (data.items && data.items.length > 0) {
-            const dynamicFormatted: GalleryItem[] = data.items.map((it: any) => ({
-              id: it.id,
+            const dynamicFormatted: GalleryItem[] = data.items.map((it: any, index: number) => ({
+              id: it.id || `dyn-${index}`,
               src: it.url,
               category: it.category || 'gym-training',
-              catLabel: it.category?.replace('-', ' ').toUpperCase() || 'GALLERY',
+              catLabel: (it.category || 'GALLERY').replace('-', ' ').toUpperCase(),
               title: it.title || 'Academy Moment',
-              spanClass: '',
+              spanClass: index % 4 === 0 ? 'w2 h2' : index % 3 === 0 ? 'w2' : '',
+              isNew: true,
             }));
+
+            // Prepend new Cloudinary uploads at top of gallery
             setItems([...dynamicFormatted, ...DEFAULT_ITEMS]);
           }
         }
       } catch (e) {
-        // Fallback to default static items
+        console.warn('Dynamic gallery load notice:', e);
+      } finally {
+        setLoading(false);
       }
     }
     loadDynamicGallery();
@@ -89,6 +96,12 @@ export default function GalleryGrid() {
         >
           Achievements
         </button>
+        <button
+          className={`filter-btn ${filter === 'athletes' ? 'active' : ''}`}
+          onClick={() => setFilter('athletes')}
+        >
+          Athletes
+        </button>
       </div>
 
       {/* Main Grid */}
@@ -98,12 +111,23 @@ export default function GalleryGrid() {
             key={item.id}
             className={`gallery-item ${item.spanClass || ''}`}
             onClick={() => setSelectedImg(item.src)}
+            style={{ cursor: 'pointer' }}
           >
-            <img src={item.src} alt={item.title} loading="lazy" />
+            <img
+              src={item.src}
+              alt={item.title}
+              loading="lazy"
+              onError={(e) => {
+                // If remote image fails, fallback gracefully
+                (e.target as HTMLElement).style.display = 'none';
+              }}
+            />
             <div className="gallery-corner"></div>
             <div className="gallery-overlay">
               <div className="gallery-overlay__inner">
-                <span className="gallery-cat">{item.catLabel}</span>
+                <span className="gallery-cat">
+                  {item.catLabel} {item.isNew && <span style={{ color: 'var(--gold)', marginLeft: '4px' }}>★</span>}
+                </span>
                 <div className="gallery-item-title">{item.title}</div>
               </div>
             </div>
@@ -118,7 +142,7 @@ export default function GalleryGrid() {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(0, 0, 0, 0.9)',
+            background: 'rgba(0, 0, 0, 0.92)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -149,7 +173,7 @@ export default function GalleryGrid() {
           </button>
           <img
             src={selectedImg}
-            alt="Enlarged gallery view"
+            alt="Enlarged view"
             style={{
               maxWidth: '90vw',
               maxHeight: '85vh',
