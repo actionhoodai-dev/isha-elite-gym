@@ -3,27 +3,74 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, MessageSquare, Image, ExternalLink, LogOut } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, Image, ExternalLink, LogOut, User as UserIcon } from 'lucide-react';
+import { auth } from '@/lib/firebase';
+import { signOut } from 'firebase/auth';
 
-export default function AdminSidebar() {
+interface AdminSidebarProps {
+  currentUserEmail?: string | null;
+}
+
+export default function AdminSidebar({ currentUserEmail }: AdminSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (e) {
+      // Ignore
+    }
     sessionStorage.removeItem('admin_authenticated');
+    sessionStorage.removeItem('admin_role');
     router.push('/admin/login');
   };
 
   return (
     <aside className="admin-sidebar">
       <div className="admin-sidebar-header">
-        <img
-          src="/images/logo.jpeg"
-          alt="Logo"
-          style={{ width: '38px', height: '38px', borderRadius: '50%', border: '1px solid var(--gold)' }}
-        />
-        <h2>ISHA GYM <span>ADMIN</span></h2>
+        <div style={{
+          width: '42px',
+          height: '42px',
+          borderRadius: '50%',
+          border: '2px solid var(--gold)',
+          background: '#fff',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          padding: '2px',
+          flexShrink: 0
+        }}>
+          <img
+            src="/images/logo.jpeg"
+            alt="Logo"
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+          />
+        </div>
+        <div>
+          <h2>ISHA GYM <span>ADMIN</span></h2>
+          <p style={{ margin: 0, fontSize: '0.7rem', color: '#6d7f99' }}>Sports Academy Portal</p>
+        </div>
       </div>
+
+      {currentUserEmail && (
+        <div style={{
+          margin: '12px 16px 6px',
+          padding: '8px 12px',
+          background: 'rgba(255, 255, 255, 0.04)',
+          borderRadius: '6px',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px'
+        }}>
+          <UserIcon size={14} color="var(--gold)" />
+          <span style={{ fontSize: '0.78rem', color: '#cbd5e1', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            {currentUserEmail}
+          </span>
+        </div>
+      )}
 
       <ul className="admin-nav-links">
         <li className="admin-nav-item">
